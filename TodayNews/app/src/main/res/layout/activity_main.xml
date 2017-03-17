@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/theme"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/frame_layout"
+        ></FrameLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_rg"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:button="@null"
+            android:drawableTop="@drawable/shouye_selector"
+            android:textColor="@drawable/shouye_text"
+            android:id="@+id/main_shouye"
+            android:textSize="20sp"
+            android:text="首页"
+            />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/sun_selector"
+            android:textColor="@drawable/shouye_text"
+            android:id="@+id/main_sun"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="阳光宽频"
+            />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="关注"
+            android:textSize="20sp"
+            android:drawableTop="@drawable/care_selector"
+            android:textColor="@drawable/shouye_text"
+            android:button="@null"
+            android:id="@+id/main_guanzhu"
+
+            />
+        <!--<RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/login_selector"
+            android:textColor="@drawable/shouye_text"
+            android:id="@+id/main_login"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="未登录"
+            />-->
+
+    </RadioGroup>
+
+</LinearLayout>
