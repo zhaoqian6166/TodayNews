@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gift_text"
+        android:textSize="20sp"
+        android:text="标题"
+        />
+   <!-- <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gift_view"
+        />-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gift_view"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/gift_rg"
+        >
+        <RadioButton
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gift_like"
+            android:text="300"
+            android:drawableLeft="@drawable/like"
+            android:button="@null"
+            />
+        <ImageView
+            android:focusable="false"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gift_comment"
+            android:text="300评论"
+            android:drawableLeft="@mipmap/comment_video_normal"
+            android:button="@null"
+            />
+        <ImageView
+            android:focusable="false"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="        "
+            android:id="@+id/gift_colect"
+            android:button="@null"
+            android:drawableLeft="@drawable/duanzi"
+            />
+
+        <RadioButton
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="        "
+            android:id="@+id/gift_share"
+            android:button="@null"
+            android:drawableLeft="@drawable/share_sel"
+            />
+    </RadioGroup>
+
+
+</LinearLayout>
