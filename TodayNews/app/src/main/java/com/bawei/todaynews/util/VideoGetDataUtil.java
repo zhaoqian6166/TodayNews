@@ -1,10 +1,14 @@
 package com.bawei.todaynews.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.bawei.todaynews.activity.DetailActivity;
 import com.bawei.todaynews.adapter.Video_ListViewAdapter;
 import com.bawei.todaynews.bean.SY_tuijian_Info;
 import com.bawei.todaynews.bean.VideoBean;
@@ -103,6 +107,14 @@ public class VideoGetDataUtil {
                }
              //   Video_ListViewAdapter adapter = new Video_ListViewAdapter(list_video, context);
                 listView.setAdapter(adapter);
+                /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent=new Intent(context, DetailActivity.class);
+                        intent.putExtra("web",list_video.get(position).);
+                        context.startActivity(intent);
+                    }
+                });*/
 
             }
 

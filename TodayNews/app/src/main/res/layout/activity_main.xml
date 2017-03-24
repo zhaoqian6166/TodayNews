@@ -56,18 +56,7 @@
             android:id="@+id/main_guanzhu"
 
             />
-        <!--<RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/login_selector"
-            android:textColor="@drawable/shouye_text"
-            android:id="@+id/main_login"
-            android:textSize="20sp"
-            android:gravity="center_horizontal"
-            android:text="未登录"
-            />-->
+
 
     </RadioGroup>
 

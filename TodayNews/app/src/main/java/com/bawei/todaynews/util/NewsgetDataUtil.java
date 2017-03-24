@@ -1,8 +1,13 @@
 package com.bawei.todaynews.util;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.bawei.todaynews.activity.DetailActivity;
 import com.bawei.todaynews.adapter.SY_ListViewAdapter;
 import com.bawei.todaynews.bean.News;
 import com.bawei.todaynews.bean.SY_tuijian_Info;
@@ -49,40 +54,31 @@ public class NewsgetDataUtil {
                 Toast.makeText(context, "走缓存", Toast.LENGTH_SHORT).show();
 //得到解析数据
                 ArrayList<SY_tuijian_Info.Data_tuijian> data = getDataAll(result);
-                //     String head = data.get(0).content;//头布局json
-                //   addHead(head);//添加头布局
-                //每个条目的对象集合
-               /* if (list_news==null){
-                    list_news = new ArrayList<News>();
-                }else{
-                    list_news.clear();
-                }*/
 
                 for (int i = 0; i < data.size(); i++) {
                     String json = data.get(i).content;
                     News news = gson.fromJson(json, News.class);
                     list_news.add(news);
                 }
-               /* Log.i("aaa", result);
-                ArrayList<String> list = new ArrayList<String>();
-                for (int i = 0; i < 50; i++) {
-                    list.add("条目：" + i);*/
 
-              /*  }*/
                 SY_ListViewAdapter adapter = new SY_ListViewAdapter(list_news,context);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent=new Intent(context, DetailActivity.class);
+                        intent.putExtra("web",list_news.get(position).url);
+                        context.startActivity(intent);
+                    }
+                });
                 return true;
             }
 
             @Override
             public void onSuccess(String result) {
-               /* if (result != null) {
-                    this.result = result;
-                }*/
                 //得到解析数据
                 ArrayList<SY_tuijian_Info.Data_tuijian> data = getDataAll(result);
                 String head = data.get(0).content;//头布局json
-                //   addHead(head);//添加头布局
                 if (list_news==null){
                     list_news = new ArrayList<News>();//每个条目的对象集合
                 }
@@ -93,15 +89,18 @@ public class NewsgetDataUtil {
                     News news = gson.fromJson(json, News.class);
                     list_news.add(news);
                 }
-             /*   Log.i("aaa", result);
-                ArrayList<String> list = new ArrayList<String>();
-                for (int i = 0; i < 50; i++) {
-                    list.add("条目：" + i);
-
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, list);*/
                 SY_ListViewAdapter adapter = new SY_ListViewAdapter(list_news, context);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                     Log.i("点击事件","点击条目");
+                        Intent intent=new Intent(context, DetailActivity.class);
+                        Log.i("-------?????",list_news.get(position).url);
+                        intent.putExtra("web",list_news.get(position).url);
+                        context.startActivity(intent);
+                    }
+                });
 
             }
 

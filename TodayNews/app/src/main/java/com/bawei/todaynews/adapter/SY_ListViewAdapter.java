@@ -32,40 +32,35 @@ public class SY_ListViewAdapter extends BaseAdapter{
     @Override
     public int getItemViewType(int position) {
         News news = list_news.get(position);
-        Log.i("有图片么","位置:"+position+""+news.has_image+"，有视频么："+news.has_video);
      //   Log.i("图片信")
         if (news.has_image) {
-            Log.i("测试图片","位置："+position+"，小："+news.image_list.size()+"，中："+news.middle_image.url+",大："+news.large_image_list.size());
             if (news.image_list.size() ==3) {
                 //上面TextView+下面3张图片  item0
-                Log.i("返回","位置:"+position+"，返回："+"0");
                 return 0;
             } else if (news.image_list.size() == 0 && news.large_image_list.size() != 0) {
                 //上面TextView+下面一张图片   item1
-                Log.i("返回","位置:"+position+"，返回："+"1");
                 return 1;
             } else if (news.image_list.size() == 0 && news.large_image_list.size() == 0 && news.middle_image.url != null) {
                 //左边TextView+右边Img   item2
-                Log.i("返回","位置:"+position+"，返回："+"2");
                 return 2;
             }else{
                 //纯文本显示 item3
-                Log.i("返回","位置:"+position+"，返回："+"3");
                 return 3;
             }
-        }else if (news.has_video){
+        }else if (news.has_video&&news.large_image_list.size()!=0){
+            if (news.large_image_list.size()!=0){
+                return 1;
+            }else if(news.middle_image.url!=null){
+
+                return 1;
+
+            }else{
+                return 3;
+            }
             //返回一个上面textView  下面一张大图片的视图 item1
-            Log.i("返回","位置:"+position+"，返回："+"1");
-            return 1;
         }else{
-            Log.i("返回","位置:"+position+"，返回："+"3");
             return 3;
         }
-       /* if (!news.has_video&&!news.has_image){
-
-        }*/
-
-      //  return 0;
     }
 
     @Override
@@ -182,6 +177,7 @@ public class SY_ListViewAdapter extends BaseAdapter{
                 holder1.item1_text.setText(list_news.get(position).title);
                 holder1.item1_comment.setText(list_news.get(position).comment_count+"评论");
                 holder1.item1_from.setText(list_news.get(position).source);
+                holder1.item1_img.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 Picasso.with(context).load(list_news.get(position).large_image_list.get(0).url).into(holder1.item1_img);
 
                 break;

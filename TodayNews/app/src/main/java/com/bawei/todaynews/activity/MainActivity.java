@@ -17,11 +17,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bawei.todaynews.R;
+import com.bawei.todaynews.fragment.Colect;
 import com.bawei.todaynews.shouyeFragment.ShouYe;
 import com.bawei.todaynews.sunVideoFragment.SunVideo;
 import com.bawei.todaynews.util.ThemeManager;
@@ -58,6 +58,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private LinearLayout theme;
     private ActionBar supportActionBar;
     private LinearLayout sliding_main;
+    private ImageView mode_img;
+    private RadioButton sliding_mode;
+    private Colect colect;
     /*
     @ViewInject(R.id.frame_layout)
     FrameLayout frameLayout;
@@ -99,11 +102,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentTransaction transaction = manager.beginTransaction();
         shouYe = new ShouYe();
         sunVideo = new SunVideo();
+        colect = new Colect();
         transaction.add(R.id.frame_layout, shouYe, "shouye");
         transaction.add(R.id.frame_layout, sunVideo, "sunVideo");
+        transaction.add(R.id.frame_layout, colect, "colect");
         //   transaction.add(R.id.frame_layout,shouYe,"shouye");
         transaction.show(shouYe);
         transaction.hide(sunVideo);
+        transaction.hide(colect);
+
         transaction.commit();
 //---------------------设置侧滑-----------------------------
         slidingMenu = new SlidingMenu(this);
@@ -134,17 +141,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         phone = (ImageView) findViewById(R.id.login_phone);
         ImageView login_qq = (ImageView) findViewById(R.id.login_qq);
         ImageView login_sina = (ImageView) findViewById(R.id.login_sina);
-        LinearLayout login_like = (LinearLayout) findViewById(R.id.login_like);
-        LinearLayout login_history = (LinearLayout) findViewById(R.id.login_history);
-        LinearLayout login_mode = (LinearLayout) findViewById(R.id.login_mode);
-        ImageView mode_img = (ImageView) findViewById(R.id.siliding_mode_img);
-        mode_text = (TextView) findViewById(R.id.siliding_mode_text);
+        RadioButton sliding_like = (RadioButton) findViewById(R.id.sliding_like);
+        RadioButton siliding_history = (RadioButton) findViewById(R.id.siliding_history);
+        sliding_mode = (RadioButton) findViewById(R.id.sliding_mode);
+      /*  mode_img = (ImageView) findViewById(R.id.siliding_mode_img);
+        mode_text = (TextView) findViewById(R.id.siliding_mode_text);*/
         destroy = (TextView) findViewById(R.id.sliding_login_destroy);
         //监听
         login_qq.setOnClickListener(this);
         destroy.setOnClickListener(this);
         phone.setOnClickListener(this);
-        login_mode.setOnClickListener(this);
+        sliding_mode.setOnClickListener(this);
 
     }
 
@@ -164,7 +171,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.sliding_login_destroy:
                 UMShareAPI.get(MainActivity.this).deleteOauth(MainActivity.this, SHARE_MEDIA.QQ.toSnsPlatform().mPlatform, umAuthListener);
                 break;
-            case R.id.login_mode:
+            case R.id.sliding_mode:
                 ThemeManager.setThemeMode(ThemeManager.getThemeMode() == ThemeManager.ThemeMode.DAY
                         ? ThemeManager.ThemeMode.NIGHT : ThemeManager.ThemeMode.DAY);
 
@@ -174,13 +181,24 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 FragmentTransaction transaction1 = manager.beginTransaction();
                 transaction1.show(shouYe);
                 transaction1.hide(sunVideo);
+                transaction1.hide(colect);
                 transaction1.commit();
                 break;
             case R.id.main_sun:
                 FragmentTransaction transaction2 = manager.beginTransaction();
                 transaction2.show(sunVideo);
                 transaction2.hide(shouYe);
+                transaction2.hide(colect);
+
                 transaction2.commit();
+                break;
+            case R.id.main_guanzhu:
+                FragmentTransaction transaction3 = manager.beginTransaction();
+                transaction3.show(colect);
+                transaction3.hide(shouYe);
+                transaction3.hide(sunVideo);
+
+                transaction3.commit();
                 break;
 
 
@@ -264,9 +282,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     public void initTheme() {
-        user_name.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
-        mode_text.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
-        destroy.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        sliding_mode.setChecked(sliding_mode.isChecked());
         theme.setBackgroundColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.backgroundColor)));
         sliding_main.setBackgroundColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.backgroundColor)));
         // 设置标题栏颜色

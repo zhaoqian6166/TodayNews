@@ -39,8 +39,11 @@ public class ShouYe extends Fragment {
        list_String.add("热点");
         list_String.add("社会");
         list_String.add("正能量");
-      /*   list_String.add("图片");
+        list_String.add("图片");
+        list_String.add("趣图");
         list_String.add("段子");
+      /*   list_String.add("图片");
+
         list_String.add("体育");*/
         //设置选项卡的内容
         for (int i = 0; i < list_String.size(); i++) {
@@ -51,10 +54,16 @@ public class ShouYe extends Fragment {
         Shouye_hot shouye_hot = new Shouye_hot();
         Shouye_shehui shouye_shehui = new Shouye_shehui();
         Shouye_zhengnengliang shouye_zhengnengliang = new Shouye_zhengnengliang();
+        Shouye_tupian shouye_tupian = new Shouye_tupian();
+        Shouye_Gift shouye_gift = new Shouye_Gift();
+        Shouye_duanzi shouye_duanzi = new Shouye_duanzi();
         list_frag.add(shouye_tuijian);
         list_frag.add(shouye_hot);
         list_frag.add(shouye_shehui);
         list_frag.add(shouye_zhengnengliang);
+        list_frag.add(shouye_tupian);
+        list_frag.add(shouye_gift);
+        list_frag.add(shouye_duanzi);
         //得到适配器  设置适配器
         ViewpagerAdapter adapter = new ViewpagerAdapter(getChildFragmentManager(),list_String,list_frag);
         viewpager.setAdapter(adapter);

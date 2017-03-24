@@ -2,4 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:state_checked="false" android:drawable="@mipmap/b_newcare_tabbar"/>
     <item android:state_checked="true" android:drawable="@mipmap/b_newcare_tabbar_press"/>
+    <item android:state_selected="true" android:drawable="@mipmap/b_newcare_tabbar_press"/>
+    <item  android:drawable="@mipmap/b_newcare_tabbar"/>
 </selector>

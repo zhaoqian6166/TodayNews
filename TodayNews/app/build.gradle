@@ -10,6 +10,16 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "f57167ac49da3f02ede88eec", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -33,8 +43,13 @@ dependencies {
     compile project(':myxlistviewlibrary')
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'fm.jiecao:jiecaovideoplayer:3.3'
-    compile project(':slidingmenulibrary')
-
+    compile 'cn.jiguang.sdk:jpush:3.0.3'
+    // 此处以JPush 3.0.3 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.1'
+    // 此处以JCore 1.1.1 版本为例。
     compile name: 'SMSSDK-2.1.3', ext: 'aar'
     compile name: 'SMSSDKGUI-2.1.3', ext: 'aar'
+    compile files('libs/uk-co-senab-photoview.jar')
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile project(':slidingmenulibrary')
 }

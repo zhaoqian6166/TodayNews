@@ -65,13 +65,6 @@ public class Video_ListViewAdapter extends BaseAdapter{
         }else{
           holder= (ViewHolder) convertView.getTag();
         }
-       /* ImageOptions.Builder builder = new ImageOptions.Builder();
-        builder.setCircular(true);   //设置圆形图片
-        builder.setCrop(true);
-        builder.setSize(60,60);
-        builder.setLoadingDrawableId(R.mipmap.icon);
-        ImageOptions build = builder.build();    //注意设置图片的时候 ，添加的是这个参数
-        x.image().bind(holder.img,list_news.get(position).topicImg,build);*/
         Picasso.with(context).load(list_news.get(position).topicImg).error(R.mipmap.icon).placeholder(R.mipmap.icon).into(holder.jp.thumbImageView);
         holder.jp.setUp(list_news.get(position).mp4_url,list_news.get(position).title);
         holder.tname.setText(list_news.get(position).topicName);
