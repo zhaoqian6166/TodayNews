@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:text="搞笑"
     android:id="@+id/love_item_type"
-    android:textSize="20sp"
+    android:textSize="30sp"
     />
     <TextView
         android:layout_width="wrap_content"
@@ -23,12 +23,11 @@
         />
     <Button
         android:focusable="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
         android:layout_gravity="right"
         android:id="@+id/love_colect"
-        android:background="#927435"
-        android:text="取消关注"
+        android:background="@mipmap/add_textpage_normal"
         />
 
 

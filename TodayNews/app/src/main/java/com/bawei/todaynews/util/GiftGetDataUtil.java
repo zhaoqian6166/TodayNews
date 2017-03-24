@@ -12,6 +12,7 @@ import com.bawei.todaynews.adapter.GiftListAdapter;
 import com.bawei.todaynews.adapter.PicListViewAdapter;
 import com.bawei.todaynews.bean.News;
 import com.bawei.todaynews.bean.SY_tuijian_Info;
+import com.bawei.todaynews.sqlite.SqUtil;
 import com.google.gson.Gson;
 
 import org.xutils.common.Callback;
@@ -31,13 +32,16 @@ public class GiftGetDataUtil {
     private String path;
     private ArrayList<News> list_news;
     private XListView listView;
+    private SqUtil sqUtil;
 
-    public GiftGetDataUtil(Gson gson, Context context, String path, ArrayList<News> list_news, XListView listView) {
+
+    public GiftGetDataUtil(Gson gson, Context context, String path, ArrayList<News> list_news, XListView listView, SqUtil sqUtil) {
         this.gson = gson;
         this.context = context;
         this.path = path;
         this.list_news = list_news;
         this.listView = listView;
+        this.sqUtil = sqUtil;
     }
 
     //网络请求数据
@@ -63,7 +67,7 @@ public class GiftGetDataUtil {
                     }
                 }
                // PicListViewAdapter adapter = new PicListViewAdapter(list_news, context);
-                GiftListAdapter adapter = new GiftListAdapter(list_news, context);
+                GiftListAdapter adapter = new GiftListAdapter(list_news, context,sqUtil);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -95,7 +99,7 @@ public class GiftGetDataUtil {
                         list_news.add(news);
                  //   }
                 }
-                GiftListAdapter adapter = new GiftListAdapter(list_news, context);
+                GiftListAdapter adapter = new GiftListAdapter(list_news, context,sqUtil);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override

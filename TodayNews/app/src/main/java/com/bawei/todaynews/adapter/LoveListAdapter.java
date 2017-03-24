@@ -16,6 +16,7 @@ import com.bawei.todaynews.R;
 import com.bawei.todaynews.bean.LoveBean;
 import com.bawei.todaynews.sqlite.SqUtil;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +73,7 @@ public class LoveListAdapter extends BaseAdapter {
         }else{
             holder.type.setText("趣图");
             holder.img.setVisibility(View.VISIBLE);
-            Glide.with(context).load(list.get(position).img).into(holder.img);
+            Glide.with(context).load(list.get(position).img).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(holder.img);
         }
         //点击取消关注后   删除  按钮不可点击
         holder.colect.setOnClickListener(new View.OnClickListener() {

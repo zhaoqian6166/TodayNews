@@ -21,60 +21,74 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gift_view"/>
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/gift_rg"
         >
-        <RadioButton
-            android:focusable="false"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gift_like"
+            android:src="@drawable/like"
+            android:id="@+id/gift_like_img"
+            />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="300"
-            android:drawableLeft="@drawable/like"
-            android:button="@null"
+            android:id="@+id/gift_like_text"
+
             />
         <ImageView
-            android:focusable="false"
             android:layout_width="50dp"
             android:layout_height="wrap_content" />
 
-        <RadioButton
-            android:focusable="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/gift_comment"
-            android:text="300评论"
-            android:drawableLeft="@mipmap/comment_video_normal"
-            android:button="@null"
-            />
         <ImageView
-            android:focusable="false"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <RadioButton
-            android:focusable="false"
+            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="        "
-            android:id="@+id/gift_colect"
-            android:button="@null"
-            android:drawableLeft="@drawable/duanzi"
+            android:src="@mipmap/comment_video_normal"
+            android:id="@+id/gift_comment_img"
+            />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300"
+            android:id="@+id/gift_comment_text"
+
             />
 
-        <RadioButton
-            android:focusable="false"
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="        "
-            android:id="@+id/gift_share"
-            android:button="@null"
-            android:drawableLeft="@drawable/share_sel"
+            android:background="@mipmap/b_newcare_tabbar"
+
+            android:id="@+id/gift_love"
             />
-    </RadioGroup>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share_sel"
+            android:id="@+id/gift_share"
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
 </LinearLayout>

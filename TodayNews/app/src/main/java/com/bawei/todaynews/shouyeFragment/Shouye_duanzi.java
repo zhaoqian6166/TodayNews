@@ -53,7 +53,6 @@ public class Shouye_duanzi extends Fragment {
         SQLiteDatabase db = mySqlite.getWritableDatabase();
         sqUtil = new SqUtil(db);
 
-
         util = new DZGetDataUtil(gson, getContext(), path, list_views, listView, sqUtil);
         util.getData();
         listView.setPullRefreshEnable(true);
