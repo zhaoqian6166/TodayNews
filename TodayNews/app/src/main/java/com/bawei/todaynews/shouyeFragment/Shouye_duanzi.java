@@ -53,7 +53,7 @@ public class Shouye_duanzi extends Fragment {
         SQLiteDatabase db = mySqlite.getWritableDatabase();
         sqUtil = new SqUtil(db);
 
-        util = new DZGetDataUtil(gson, getContext(), path, list_views, listView, sqUtil);
+        util = new DZGetDataUtil(gson, getContext(), path, list_views, listView, sqUtil,getActivity());
         util.getData();
         listView.setPullRefreshEnable(true);
         listView.setPullLoadEnable(true);
@@ -66,7 +66,7 @@ public class Shouye_duanzi extends Fragment {
                     public void run() {
                         //  下拉刷新 集合清空 请求最新数据
                         list_views.clear();
-                        util = new DZGetDataUtil(gson, getContext(), path, list_views, listView, sqUtil);
+                        util = new DZGetDataUtil(gson, getContext(), path, list_views, listView, sqUtil,getActivity());
                         util.getData();
                         listView.stopRefresh();
                     }

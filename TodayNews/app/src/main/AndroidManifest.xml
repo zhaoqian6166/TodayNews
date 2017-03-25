@@ -62,7 +62,9 @@
             android:value="58cb8244b27b0a25f8001c3a" >
         </meta-data>
         <activity android:name=".activity.PicActivity"/>
-        <activity android:name=".activity.DetailActivity"/>
+        <activity android:name=".activity.DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
     </application>
 

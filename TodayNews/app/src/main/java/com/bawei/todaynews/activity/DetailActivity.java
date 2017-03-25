@@ -2,6 +2,7 @@ package com.bawei.todaynews.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -11,10 +12,13 @@ import android.webkit.WebViewClient;
 
 import com.bawei.todaynews.R;
 
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
 /**
  * Created by Administrator on 2017/3/23.
  */
-public class DetailActivity extends Activity{
+public class DetailActivity extends SwipeBackActivity {
     Handler handler=new Handler();
     private WebView webView;
 
@@ -22,6 +26,10 @@ public class DetailActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview);
+        SwipeBackLayout mSwipeBackLayout = getSwipeBackLayout();
+        mSwipeBackLayout.setScrimColor(Color.TRANSPARENT);
+        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
+        //得到跳转传来的值
         Intent intent = getIntent();
         String web = intent.getStringExtra("web");
         webView = (WebView) findViewById(R.id.webview);
@@ -73,9 +81,10 @@ public class DetailActivity extends Activity{
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
-
-
+//关闭这个Activity （写完上面滑动删除Activity也就基本实现了，但是会出现黑色背景闪过）
+    @Override
+    public void onBackPressed() {
+        scrollToFinishActivity();
+    }
 
 }

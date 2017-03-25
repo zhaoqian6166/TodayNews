@@ -95,9 +95,9 @@ public class GiftGetDataUtil {
                 for (int i = 0; i < data.size(); i++) {
                     String json = data.get(i).content;
                     News news = gson.fromJson(json, News.class);
-                  //  if (news.image_list.size()!=0){
+                    if (news.large_image.url_list.size()!=0){
                         list_news.add(news);
-                 //   }
+                    }
                 }
                 GiftListAdapter adapter = new GiftListAdapter(list_news, context,sqUtil);
                 listView.setAdapter(adapter);

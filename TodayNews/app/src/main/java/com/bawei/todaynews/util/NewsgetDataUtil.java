@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.bawei.todaynews.R;
 import com.bawei.todaynews.activity.DetailActivity;
 import com.bawei.todaynews.adapter.SY_ListViewAdapter;
 import com.bawei.todaynews.bean.News;
@@ -69,6 +70,7 @@ public class NewsgetDataUtil {
                         Intent intent=new Intent(context, DetailActivity.class);
                         intent.putExtra("web",list_news.get(position).url);
                         context.startActivity(intent);
+                        //overridePendingTransition(R.anim.anim_ctivity, R.anim.anim_now);
                     }
                 });
                 return true;

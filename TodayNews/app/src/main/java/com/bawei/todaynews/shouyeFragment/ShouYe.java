@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.bawei.todaynews.R;
 import com.bawei.todaynews.adapter.ViewpagerAdapter;
@@ -21,7 +22,6 @@ public class ShouYe extends Fragment {
 
     private View view;
     private ViewPager viewpager;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class ShouYe extends Fragment {
     private void initView() {
         TabLayout tab = (TabLayout) view.findViewById(R.id.f1_table_title);
         viewpager = (ViewPager) view.findViewById(R.id.f1_viewpager);
+        ImageView img= (ImageView) view.findViewById(R.id.shouye_add);
+        img.setAlpha(200);
         //设置选项卡的数据
         ArrayList<String> list_String = new ArrayList<String>();
         list_String.add("推荐");

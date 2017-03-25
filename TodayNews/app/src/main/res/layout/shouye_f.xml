@@ -4,13 +4,27 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <android.support.design.widget.TabLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:id="@+id/f1_table_title"
-        app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextColor="@android:color/black"></android.support.design.widget.TabLayout>
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TabLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:id="@+id/f1_table_title"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="@android:color/black"></android.support.design.widget.TabLayout>
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@mipmap/add_channel_titlbar_follow_normal"
+            android:id="@+id/shouye_add"
+            />
+
+    </LinearLayout>
+
+
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

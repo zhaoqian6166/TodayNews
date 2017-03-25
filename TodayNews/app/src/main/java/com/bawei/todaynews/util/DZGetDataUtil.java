@@ -1,5 +1,6 @@
 package com.bawei.todaynews.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.bawei.todaynews.R;
 import com.bawei.todaynews.activity.DetailActivity;
 import com.bawei.todaynews.adapter.DZListAdapter;
 import com.bawei.todaynews.adapter.GiftListAdapter;
@@ -33,14 +35,16 @@ public class DZGetDataUtil {
     private ArrayList<News> list_news;
     private XListView listView;
     private SqUtil sqUtil;
+    private Activity activity;
 
-    public DZGetDataUtil(Gson gson, Context context, String path, ArrayList<News> list_news, XListView listView,SqUtil sqUtil) {
+    public DZGetDataUtil(Gson gson, Context context, String path, ArrayList<News> list_news, XListView listView,SqUtil sqUtil,Activity activity) {
         this.gson = gson;
         this.context = context;
         this.path = path;
         this.list_news = list_news;
         this.listView = listView;
         this.sqUtil=sqUtil;
+        this.activity=activity;
     }
 
     //网络请求数据
@@ -77,6 +81,7 @@ public class DZGetDataUtil {
                         Log.i("趣图---",list_news.get(position).share_url);
                         intent.putExtra("web",list_news.get(position).share_url);
                         context.startActivity(intent);
+                        activity.overridePendingTransition(R.anim.anim_ctivity, R.anim.anim_now);
                     }
                 });
                 return true;
@@ -110,6 +115,7 @@ public class DZGetDataUtil {
                     //    Log.i("趣图---",list_news.get(position).share_url);
                         intent.putExtra("web",list_news.get(position).share_url);
                         context.startActivity(intent);
+                        activity.overridePendingTransition(R.anim.anim_ctivity, R.anim.anim_now);
                     }
                 });
 
