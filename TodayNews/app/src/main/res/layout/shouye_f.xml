@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
@@ -18,7 +19,7 @@
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:src="@mipmap/add_channel_titlbar_follow_normal"
+            android:src="@drawable/icon_subscibe_show"
             android:id="@+id/shouye_add"
             />
 

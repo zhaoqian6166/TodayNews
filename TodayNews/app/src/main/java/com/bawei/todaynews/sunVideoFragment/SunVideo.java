@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bawei.todaynews.R;
+import com.bawei.todaynews.adapter.VideopagerAdapter;
 import com.bawei.todaynews.adapter.ViewpagerAdapter;
 import com.bawei.todaynews.shouyeFragment.Shouye_tuijian;
 
@@ -23,7 +24,7 @@ public class SunVideo extends Fragment {
     private View view;
     private TabLayout tab;
     private ViewPager viewpager;
-    private ViewpagerAdapter adapter;
+    private VideopagerAdapter adapter;
 
     @Nullable
     @Override
@@ -56,11 +57,13 @@ public class SunVideo extends Fragment {
         list_frag.add(video_gaoxiao);
         list_frag.add(video_jinpin);
         //得到适配器  设置适配器
-        adapter = new ViewpagerAdapter(getChildFragmentManager(),list_String,list_frag);
+       /* adapter = new ViewpagerAdapter(getChildFragmentManager(),list_String,list_frag);
+        viewpager.setAdapter(adapter);*/
+        adapter = new VideopagerAdapter(getChildFragmentManager(), list_String, list_frag);
         viewpager.setAdapter(adapter);
         tab.setupWithViewPager(viewpager);
 //给tab设置适配器
-        tab.setTabsFromPagerAdapter(adapter);
+        tab.setTabsFromPagerAdapter(this.adapter);
        /* for (int i = 0; i < list_String.size(); i++){
             TabLayout.Tab tl = this.tab.getTabAt(i);
             if (tl != null) {
