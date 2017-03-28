@@ -90,7 +90,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         RadioButton shouye = (RadioButton) findViewById(R.id.main_shouye);
         RadioButton sun = (RadioButton) findViewById(R.id.main_sun);
         RadioButton guanzhu = (RadioButton) findViewById(R.id.main_guanzhu);
-
+        rg.check(R.id.main_shouye);
         shouye.setOnClickListener(this);
         sun.setOnClickListener(this);
         guanzhu.setOnClickListener(this);
@@ -112,6 +112,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         transaction.hide(colect);
 
         transaction.commit();
+
 //---------------------设置侧滑-----------------------------
         slidingMenu = new SlidingMenu(this);
 //从左边滑出
@@ -139,6 +140,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         user_img = (XCRoundImageView) findViewById(R.id.user_img);
         user_name = (TextView) findViewById(R.id.user_name);
         phone = (ImageView) findViewById(R.id.login_phone);
+        TextView text= (TextView) findViewById(R.id.download);//下载
+
+
         ImageView login_qq = (ImageView) findViewById(R.id.login_qq);
         ImageView login_sina = (ImageView) findViewById(R.id.login_sina);
         RadioButton sliding_like = (RadioButton) findViewById(R.id.sliding_like);
@@ -152,6 +156,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         destroy.setOnClickListener(this);
         phone.setOnClickListener(this);
         sliding_mode.setOnClickListener(this);
+        text.setOnClickListener(this);
 
     }
 
@@ -199,6 +204,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 transaction3.hide(sunVideo);
 
                 transaction3.commit();
+                break;
+            case R.id.download:
+                Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
+                startActivity(intent);
                 break;
 
 

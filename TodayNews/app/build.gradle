@@ -54,4 +54,5 @@ dependencies {
     compile project(':slidingmenulibrary')
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
     compile project(':channellib')
+    compile project(':magicindicator')
 }

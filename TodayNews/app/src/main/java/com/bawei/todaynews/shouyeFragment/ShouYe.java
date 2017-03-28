@@ -68,13 +68,22 @@ public class ShouYe extends Fragment implements ChannelDataHelepr.ChannelDataRef
         Shouye_tupian shouye_tupian = new Shouye_tupian();
         Shouye_Gift shouye_gift = new Shouye_Gift();
         Shouye_duanzi shouye_duanzi = new Shouye_duanzi();
-        list_frag.add(shouye_tuijian);
+
+        Shouye_tuijian shouye_tuijian2 = new Shouye_tuijian();
+        Shouye_hot shouye_hot2 = new Shouye_hot();
+        Shouye_shehui shouye_shehui2 = new Shouye_shehui();
+        Shouye_zhengnengliang shouye_zhengnengliang2 = new Shouye_zhengnengliang();
+        Shouye_tupian shouye_tupian2 = new Shouye_tupian();
+        Shouye_Gift shouye_gift2 = new Shouye_Gift();
+        Shouye_duanzi shouye_duanzi2 = new Shouye_duanzi();
+
+        /*list_frag.add(shouye_tuijian);
         list_frag.add(shouye_hot);
         list_frag.add(shouye_shehui);
         list_frag.add(shouye_zhengnengliang);
         list_frag.add(shouye_tupian);
         list_frag.add(shouye_gift);
-        list_frag.add(shouye_duanzi);
+        list_frag.add(shouye_duanzi);*/
         //实例化ChannelDataHelepr对象  第一个参数是上下文，第二个参数是响应的频道管理器的监听，第三个是
         //要将管理器显示在哪个控件下方
         dataHelepr = new ChannelDataHelepr(getContext(), this, view.findViewById(R.id.ll));
@@ -89,10 +98,19 @@ public class ShouYe extends Fragment implements ChannelDataHelepr.ChannelDataRef
         ch_list.add(new MyChannel("图片",0,0,1,shouye_tupian));
         ch_list.add(new MyChannel("趣图",0,0,1,shouye_gift));
         ch_list.add(new MyChannel("段子",0,0,1,shouye_duanzi));
+
+        ch_list.add(new MyChannel("体育",0,1,1,shouye_tuijian2));
+        ch_list.add(new MyChannel("生活",0,1,0,shouye_hot2));
+        ch_list.add(new MyChannel("娱乐",0,0,0,shouye_shehui2));
+        ch_list.add(new MyChannel("养生",1,0,1,shouye_zhengnengliang2));
+        ch_list.add(new MyChannel("健康",1,0,1,shouye_tupian2));
+        ch_list.add(new MyChannel("时尚",0,0,1,shouye_gift2));
+        ch_list.add(new MyChannel("财经",1,0,1,shouye_duanzi2));
+
+
         myChannels = new ArrayList<MyChannel>();
 
         //得到适配器  设置适配器
-      //  adapter = new ViewpagerAdapter(getChildFragmentManager(),list_String,list_frag);
         adapter=new ViewpagerAdapter(getChildFragmentManager(),myChannels);
         viewpager.setAdapter(adapter);
         tab.setupWithViewPager(viewpager);
