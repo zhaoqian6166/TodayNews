@@ -75,13 +75,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //   x.view().inject(this);//初始化
         SMSSDK.initSDK(this, "1c0e2609bb4aa", "a941cdb1b2e606adc23902d0f08b60cf");
         initView();
-        //主页面为frameLayout和RadioGroup
 
     }
 
     private void initView() {
         ThemeManager.registerThemeChangeListener(this);
-        //ActionBar supportActionBar =getActionBar();
         supportActionBar = getActionBar();
         //找到控件
         theme = (LinearLayout) findViewById(R.id.theme);
@@ -94,7 +92,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         shouye.setOnClickListener(this);
         sun.setOnClickListener(this);
         guanzhu.setOnClickListener(this);
-        // RadioButton shouye= (RadioButton) findViewById(R.id.main_shouye);
         SharedPreferences preferences = getSharedPreferences("config", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
@@ -125,9 +122,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         slidingMenu.setBehindOffset(200);
         slidingMenu.attachToActivity(MainActivity.this, SlidingMenu.SLIDING_CONTENT);
 //设置侧滑的布局页
-        //  slidingMenu.setMenu();
         slidingMenu.setMenu(R.layout.sliding_main);
-        // slidingMenu.setMenu(shouYe);
         initSlidingView();
 
     }
@@ -148,8 +143,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         RadioButton sliding_like = (RadioButton) findViewById(R.id.sliding_like);
         RadioButton siliding_history = (RadioButton) findViewById(R.id.siliding_history);
         sliding_mode = (RadioButton) findViewById(R.id.sliding_mode);
-      /*  mode_img = (ImageView) findViewById(R.id.siliding_mode_img);
-        mode_text = (TextView) findViewById(R.id.siliding_mode_text);*/
         destroy = (TextView) findViewById(R.id.sliding_login_destroy);
         //监听
         login_qq.setOnClickListener(this);
@@ -166,12 +159,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.login_phone:
                 //手机号码登录
                 phoneLogin();
-
                 break;
             case R.id.login_qq://点击qq之后跳转到第三方登录
                 Toast.makeText(MainActivity.this, "点击QQ", Toast.LENGTH_SHORT).show();
                 UMShareAPI.get(MainActivity.this).doOauthVerify(MainActivity.this, SHARE_MEDIA.QQ.toSnsPlatform().mPlatform, umAuthListener);
-
                 break;
             case R.id.sliding_login_destroy:
                 UMShareAPI.get(MainActivity.this).deleteOauth(MainActivity.this, SHARE_MEDIA.QQ.toSnsPlatform().mPlatform, umAuthListener);
@@ -194,7 +185,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 transaction2.show(sunVideo);
                 transaction2.hide(shouYe);
                 transaction2.hide(colect);
-
                 transaction2.commit();
                 break;
             case R.id.main_guanzhu:
@@ -202,15 +192,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 transaction3.show(colect);
                 transaction3.hide(shouYe);
                 transaction3.hide(sunVideo);
-
                 transaction3.commit();
                 break;
             case R.id.download:
                 Intent intent=new Intent(MainActivity.this,DownloadActivity.class);
                 startActivity(intent);
                 break;
-
-
         }
     }
 
@@ -299,11 +286,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             supportActionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary))));
         }
         // 设置状态栏颜色
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.setStatusBarColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary)));
-        }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary)));
     }
+}
 
     //日夜间模式的切换
     @Override

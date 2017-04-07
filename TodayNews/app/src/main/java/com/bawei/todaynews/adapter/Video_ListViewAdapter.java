@@ -82,6 +82,5 @@ public class Video_ListViewAdapter extends BaseAdapter{
         TextView tname;
         ImageView share;
         TextView miaoshu;
-
     }
 }

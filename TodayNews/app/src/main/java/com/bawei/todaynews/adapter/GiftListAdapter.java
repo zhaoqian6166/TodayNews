@@ -76,6 +76,7 @@ public class GiftListAdapter extends BaseAdapter {
         holder.title.setText(list.get(position).screen_name);
         holder.comment.setText(list.get(position).comment_count+"评论");
         holder.like.setText(list.get(position).repin_count+"");
+     //   Glide.with(context).load(url).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
         Glide.with(context).load(list.get(position).large_image.url_list.get(0).url).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(holder.img);
         //收藏按钮点击监听————————————————————
         holder.colect.setOnClickListener(new View.OnClickListener() {

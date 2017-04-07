@@ -5,6 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#D43D3D"
+
+        >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/toutiaoicon_loading_textpage"
+            android:layout_gravity="center_vertical"
+            />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@mipmap/detail_search_icon"
+            android:layout_gravity="center_vertical"
+            android:background="#F6F5F4"
+
+            />
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:background="#F6F5F4"
+            android:hint="   搜你想搜的"
+            android:textColor="@color/smssdk_gray"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:orientation="horizontal"

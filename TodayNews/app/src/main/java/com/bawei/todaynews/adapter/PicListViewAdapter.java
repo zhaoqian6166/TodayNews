@@ -82,7 +82,6 @@ public class PicListViewAdapter extends BaseAdapter {
                 Toast.makeText(context, "点击跳转", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(context, PicActivity.class);
                 ArrayList<News.Img> image_list = list.get(position).image_list;
-                String[] s=new String[image_list.size()];
                 ArrayList<String> list_s=new ArrayList<String>();
                 for (int i=0;i<image_list.size();i++){
                     String url = image_list.get(i).url;
